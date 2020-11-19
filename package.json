@@ -1,13 +1,14 @@
 {
     "name": "panel-frontend",
     "version": "0.0.0",
-    "type": "module",
+    "engines": {
+        "node": "14.x"
+    },
     "scripts": {
         "ng": "ng",
         "start": "node server.js",
         "build": "ng build",
         "test": "ng test",
-        "lint": "tsc --noEmit && eslint . --ext js,ts,json --quiet --fix",
         "e2e": "ng e2e"
     },
     "private": true,

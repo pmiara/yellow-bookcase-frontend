@@ -6,18 +6,17 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      'karma-jasmine',
+      'karma-chrome-launcher',
+      'karma-jasmine-html-reporter',
+      'karma-coverage',
+      '@angular-devkit/build-angular/plugins/karma'
     ],
     client: {
       // leave Jasmine Spec Runner output visible in browser
       clearContext: false
     },
     coverageReporter: {
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
       dir: require('path').join(__dirname, './coverage/panel-frontend'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }]
@@ -29,6 +28,12 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    }
   });
 };

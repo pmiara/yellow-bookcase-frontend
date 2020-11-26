@@ -1,0 +1,14 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-around" style="width: 100%">
+  <mat-card class="book-card" fxFlex="0 0 300px" *ngFor="let book of books">
+    <mat-card-header>
+      <mat-card-title>{{book.title}}</mat-card-title>
+      <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{book.coverImg | coverImgFullUrl}}" alt="{{book.coverImg.name}}">
+    <mat-card-content>
+      <p>
+        {{book.description}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

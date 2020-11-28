@@ -4,8 +4,10 @@
       <mat-card-title>{{book.title}}</mat-card-title>
       <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="{{book.coverImg | coverImgFullUrl}}" alt="{{book.coverImg.name}}">
-    <mat-card-content>
+    <ng-container *ngIf="book.coverImg">
+      <img mat-card-image src="{{book.coverImg | coverImgFullUrl}}" alt="{{book.coverImg.name}}">
+    </ng-container>
+    <mat-card-content *ngIf="book.description">
       <p>
         {{book.description}}
       </p>

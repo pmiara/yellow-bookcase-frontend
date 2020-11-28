@@ -1,6 +1,14 @@
 const express = require('express');
-const app = express();
 
+function enforceHTTPS(req, res, next) {
+  if (!req.secure && req.get('x-forwarded-proto') !== 'https' && process.env.NODE_ENV === 'production') {
+    return res.redirect('https://' + req.get('host') + req.url);
+  }
+  next();
+}
+
+const app = express();
+app.use(enforceHTTPS);
 app.use(express.static('./dist/panel-frontend'));
 
 app.get('/*', (req, res) =>

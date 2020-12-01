@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BooksService } from './books.service';
-import { Book } from '../common/book.model';
+import { BookshelvesService } from './bookshelves.service';
+import { Bookshelf } from '../common/bookshelf.model';
 
 @Component({
   selector: 'app-books-dashboard',
@@ -8,15 +8,17 @@ import { Book } from '../common/book.model';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  books: Book[] = [];
+  bookshelves: Bookshelf[] = [];
 
-  constructor(private booksService: BooksService) {}
+  constructor(private bookshelvesService: BookshelvesService) {}
 
-  getBooks(): void {
-    this.booksService.getBooks().subscribe((books) => (this.books = books));
+  getBookshelves(): void {
+    this.bookshelvesService
+      .getBookshelves()
+      .subscribe((bookshelves) => (this.bookshelves = bookshelves));
   }
 
   ngOnInit(): void {
-    this.getBooks();
+    this.getBookshelves();
   }
 }

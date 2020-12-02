@@ -4,7 +4,7 @@ import { Bookshelf } from '../common/bookshelf.model';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-books-dashboard',
+  selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })

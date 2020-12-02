@@ -8,6 +8,8 @@ import { CoverImgFullUrlPipe } from './cover-img-full-url.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { Bookshelf } from '../common/bookshelf.model';
+import { delay } from 'rxjs/operators';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 describe('BooksDashboardComponent', () => {
   let fixture: ComponentFixture<DashboardComponent>;
@@ -17,7 +19,12 @@ describe('BooksDashboardComponent', () => {
     const spy = jasmine.createSpyObj('BookshelfService', ['getBookshelves']);
     await TestBed.configureTestingModule({
       declarations: [DashboardComponent, CoverImgFullUrlPipe],
-      imports: [HttpClientTestingModule, MatCardModule, MatButtonModule],
+      imports: [
+        HttpClientTestingModule,
+        MatCardModule,
+        MatButtonModule,
+        MatProgressSpinnerModule
+      ],
       providers: [{ provide: BookshelvesService, useValue: spy }]
     }).compileComponents();
     bookshelvesServiceSpy = TestBed.inject(
@@ -94,5 +101,14 @@ describe('BooksDashboardComponent', () => {
         expect(description).toEqual(books[j].description);
       }
     }
+  });
+
+  it('shows a progress indicator while waiting for data', () => {
+    bookshelvesServiceSpy.getBookshelves.and.returnValue(
+      of([]).pipe(delay(1000))
+    );
+    fixture = TestBed.createComponent(DashboardComponent);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('mat-spinner')).toBeTruthy();
   });
 });

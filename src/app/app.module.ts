@@ -13,10 +13,10 @@ import { HeaderModule } from './header/header.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     DashboardModule,
-    HeaderModule
+    HeaderModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

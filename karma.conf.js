@@ -17,7 +17,7 @@ module.exports = function (config) {
       clearContext: false
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/panel-frontend'),
+      dir: require('path').join(__dirname, './coverage/yellow-bookcase'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }]
     },

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "panel-frontend": {
+    "yellow-bookcase": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/panel-frontend",
+            "outputPath": "dist/yellow-bookcase",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "panel-frontend:build"
+            "browserTarget": "yellow-bookcase:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "panel-frontend:build:production"
+              "browserTarget": "yellow-bookcase:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "panel-frontend:build"
+            "browserTarget": "yellow-bookcase:build"
           }
         },
         "test": {
@@ -110,18 +110,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "panel-frontend:serve"
+            "devServerTarget": "yellow-bookcase:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "panel-frontend:serve:production"
+              "devServerTarget": "yellow-bookcase:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "panel-frontend",
+  "defaultProject": "yellow-bookcase",
   "cli": {
     "analytics": "74d23970-47a0-4b2e-bcc9-cf3ba1393f38"
   }

@@ -9,10 +9,10 @@ function enforceHTTPS(req, res, next) {
 
 const app = express();
 app.use(enforceHTTPS);
-app.use(express.static('./dist/panel-frontend'));
+app.use(express.static('./dist/yellow-bookcase'));
 
 app.get('/*', (req, res) =>
-  res.sendFile('index.html', { root: 'dist/panel-frontend/' })
+  res.sendFile('index.html', { root: 'dist/yellow-bookcase/' })
 );
 
 const port = process.env.PORT || 8080;

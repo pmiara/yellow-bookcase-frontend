@@ -1,6 +1,7 @@
 {
   "name": "yellow-bookcase",
   "version": "0.0.0",
+  "description": "The frontend app for the Żółta Biblioteczka (The Yellow Bookcase) website.",
   "engines": {
     "node": "14.x"
   },

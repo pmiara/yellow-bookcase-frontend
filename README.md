@@ -1,27 +1,53 @@
 # Żółta Biblioteczka (The Yellow Bookcase)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
+The frontend for Żółta Biblioteczka - a website for recommending books. It's written with the Angular framework. The
+corresponding backend service repository is available at https://github.com/pmiara/yellow-bookcase-backend.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run the commands below in order to create your local setup:
 
-## Code scaffolding
+```
+mkdir yellow-bookcase
+cd yellow-bookcase
+git clone https://github.com/pmiara/yellow-bookcase-frontend
+git clone https://github.com/pmiara/yellow-bookcase-backend
+npm install concurrently
+echo concurrently "cd yellow-bookcase-backend && npm run develop" "cd yellow-bookcase-frontend && ng serve" > ./run.sh
+chmod +x ./run.sh
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This will result in creating the following file structure:
 
-## Build
+```
+yellow-bookcase
+├── run.sh
+├── yellow-bookcase-backend
+└── yellow-bookcase-frontend
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run the application by simply launching the `run.sh` file. The backend will be available at http://localhost:1337, and
+the frontend at http://localhost:4200. Initially, the website will look rather empty. You will have to add several books
+and bookshelves yourself.
 
-## Running unit tests
+## Testing
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Test files are placed next to the regular code files. They have to match `*.spec.ts` pattern in order to be found by a
+test runner.
 
-## Running end-to-end tests
+Running tests:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+`ng test --browsers=ChromeHeadlessNoSandbox`
 
-## Further help
+Apart from passing all the tests, the application code has to comply with the rules checked by ESLint:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`tsc --noEmit && eslint . --ext ts,json --quiet --fix`
+
+These two commands are run by the CI system (Travis) before deployment, or merges to the main branch.
+
+## Active deployment
+
+- https://yellow-bookcase-frontend.herokuapp.com
+- https://zolta-biblioteczka.pl
+
+The deployment is automatically triggered by changes on the main branch.

@@ -44,10 +44,3 @@ Apart from passing all the tests, the application code has to comply with the ru
 `tsc --noEmit && eslint . --ext ts,json --quiet --fix`
 
 These two commands are run by the CI system (Travis) before deployment, or merges to the main branch.
-
-## Active deployment
-
-- https://yellow-bookcase-frontend.herokuapp.com
-- https://zolta-biblioteczka.pl
-
-The deployment is automatically triggered by changes on the main branch.

@@ -1,0 +1,43 @@
+@import './variables';
+
+@mixin very-small-screen {
+  @media (max-width: $small-width-breakpoint - 1px) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media (min-width: $small-width-breakpoint * 1px) and (max-width: $medium-width-breakpoint - 1px) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media (min-width: $medium-width-breakpoint * 1px) and (max-width: $large-width-breakpoint - 1px) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media (min-width: $large-width-breakpoint * 1px) and (max-width: $very-large-width-breakpoint - 1px) {
+    @content;
+  }
+}
+
+@mixin very-large-screen {
+  @media (min-width: $very-large-width-breakpoint * 1px) {
+    @content;
+  }
+}
+
+@mixin very-small-to-medium-screen {
+  @media (max-width: $large-width-breakpoint - 1px) {
+    @content;
+  }
+}
+
+@mixin large-to-very-large-screen {
+  @media (min-width: $large-width-breakpoint * 1px) {
+    @content;
+  }
+}

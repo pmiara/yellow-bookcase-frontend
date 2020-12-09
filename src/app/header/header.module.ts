@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MenuComponent } from './menu.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [HeaderComponent, MenuComponent],

@@ -1,3 +1,10 @@
+@import '~src/sass/variables';
+
+:host {
+  margin-bottom: $margin-between-bookshelves * 1px;
+  display: block;
+}
+
 .app-title {
   font-family: Montserrat, sans-serif;
   font-weight: bold;
@@ -5,8 +12,4 @@
   line-height: 61px;
 
   color: #1F321C;
-}
-
-app-menu {
-  margin-left: auto;
 }

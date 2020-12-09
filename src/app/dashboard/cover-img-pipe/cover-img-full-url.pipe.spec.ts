@@ -1,5 +1,5 @@
 import { CoverImgFullUrlPipe } from './cover-img-full-url.pipe';
-import { EnvironmentService } from '../common/environment.service';
+import { EnvironmentService } from '../../common/environment.service';
 
 describe('CoverImgFullUrlPipe', () => {
   const fakeEnvService = {

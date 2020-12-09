@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CoverImg } from '../common/cover-img.model';
-import { EnvironmentService } from '../common/environment.service';
+import { CoverImg } from '../../common/cover-img.model';
+import { EnvironmentService } from '../../common/environment.service';
 
 @Pipe({ name: 'coverImgFullUrl' })
 export class CoverImgFullUrlPipe implements PipeTransform {

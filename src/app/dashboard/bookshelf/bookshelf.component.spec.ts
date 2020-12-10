@@ -47,7 +47,7 @@ describe('BookshelfComponent', () => {
       '.bookshelf-name'
     );
 
-    expect(bookshelfName.innerText).toEqual('Bookshelf name');
+    expect(bookshelfName.innerText).toEqual('BOOKSHELF NAME');
   });
 
   it('shows book miniatures', () => {

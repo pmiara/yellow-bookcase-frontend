@@ -1,25 +1,8 @@
 <ng-container *ngIf="bookshelves$ | async as bookshelves; else loading">
-  <div *ngFor="let bookshelf of bookshelves" class="bookshelf">
-    <ng-container *ngIf="bookshelf.books.length > 0">
-      <h3>{{bookshelf.name}}</h3>
-      <div fxLayout="row wrap" fxLayoutAlign="space-around" style="width: 100%">
-        <mat-card class="book-card" fxFlex="0 0 300px" *ngFor="let book of bookshelf.books">
-          <mat-card-header>
-            <mat-card-title>{{book.title}}</mat-card-title>
-            <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
-          </mat-card-header>
-          <ng-container *ngIf="book.coverImg">
-            <img mat-card-image src="{{book.coverImg | coverImgFullUrl}}" alt="{{book.coverImg.name}}">
-          </ng-container>
-          <mat-card-content *ngIf="book.description">
-            <p>
-              {{book.description}}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </ng-container>
-  </div>
+  <ng-container *ngFor="let bookshelf of bookshelves">
+    <app-bookshelf *ngIf="bookshelf.books.length > 0" [bookshelf]="bookshelf">
+    </app-bookshelf>
+  </ng-container>
 </ng-container>
 <ng-template #loading>
   <mat-spinner></mat-spinner>

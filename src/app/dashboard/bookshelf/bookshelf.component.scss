@@ -1,0 +1,11 @@
+@import '~src/sass/variables';
+
+:host {
+  display: block;
+  margin-bottom: $margin-between-bookshelves * 1px;
+}
+
+.bookshelf-content {
+  padding: 20px 4%;
+  background-color: white;
+}

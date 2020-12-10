@@ -1,3 +1,5 @@
+@import '~src/sass/variables';
+
 html, body {
   height: 100%;
 }
@@ -5,5 +7,5 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #F9C013;
+  background-color: $app-yellow;
 }

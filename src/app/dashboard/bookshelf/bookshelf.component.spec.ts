@@ -3,6 +3,8 @@ import { CoverImgFullUrlPipe } from '../cover-img-pipe/cover-img-full-url.pipe';
 import { Bookshelf } from '../../common/bookshelf.model';
 import { BookMiniatureComponent } from '../book-miniature/book-miniature.component';
 import { BookshelfComponent } from './bookshelf.component';
+import { BooksCarouselComponent } from '../books-carousel/books-carousel.component';
+import { CarouselModule } from 'primeng/carousel';
 
 describe('BookshelfComponent', () => {
   let fixture: ComponentFixture<BookshelfComponent>;
@@ -31,8 +33,10 @@ describe('BookshelfComponent', () => {
       declarations: [
         CoverImgFullUrlPipe,
         BookMiniatureComponent,
-        BookshelfComponent
-      ]
+        BookshelfComponent,
+        BooksCarouselComponent
+      ],
+      imports: [CarouselModule]
     }).compileComponents();
   });
 
@@ -50,9 +54,7 @@ describe('BookshelfComponent', () => {
     expect(bookshelfName.innerText).toEqual('BOOKSHELF NAME');
   });
 
-  it('shows book miniatures', () => {
-    const books = fixture.nativeElement.querySelectorAll('app-book-miniature');
-
-    expect(books.length).toBe(2);
+  it('shows a carousel', () => {
+    expect(fixture.nativeElement.querySelector('app-carousel')).toBeTruthy();
   });
 });

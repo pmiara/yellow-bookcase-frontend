@@ -6,22 +6,8 @@ $border-color: lightgray;
   display: inline-block;
   box-sizing: border-box;
   padding: 0 2px;
-
-  @include very-small-screen {
-    width: 50%;
-  }
-  @include small-screen {
-    width: 33.33333333%;
-  }
-  @include medium-screen {
-    width: 25%;
-  }
-  @include large-screen {
-    width: 20%;
-  }
-  @include very-large-screen {
-    width: 16.66666667%;
-  }
+  line-height: normal;
+  width: 100%;
 }
 
 .book-card-wrapper {
@@ -48,6 +34,7 @@ $border-color: lightgray;
   object-position: 0 0;
   transition: transform .1s;
   transform-origin: 50% 10%;
+  box-sizing: content-box;
 
   &:hover {
     transform: scale(1.1);

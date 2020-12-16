@@ -8,20 +8,24 @@ import { CoverImgFullUrlPipe } from './cover-img-pipe/cover-img-full-url.pipe';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BookshelfComponent } from './bookshelf/bookshelf.component';
 import { BookMiniatureComponent } from './book-miniature/book-miniature.component';
+import { CarouselModule } from 'primeng/carousel';
+import { BooksCarouselComponent } from './books-carousel/books-carousel.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     CoverImgFullUrlPipe,
     BookshelfComponent,
-    BookMiniatureComponent
+    BookMiniatureComponent,
+    BooksCarouselComponent
   ],
   imports: [
     CommonModule,
     MatCardModule,
     MatButtonModule,
     FlexLayoutModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    CarouselModule
   ]
 })
 export class DashboardModule {}

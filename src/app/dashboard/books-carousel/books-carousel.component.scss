@@ -1,0 +1,47 @@
+@import '~src/sass/mixins';
+
+
+:host {
+  ::ng-deep {
+    .p-carousel-indicators {
+      display: none;
+    }
+
+    .p-carousel-item {
+      flex-grow: 0 !important;
+    }
+
+    .p-carousel-items-content {
+      overflow: visible;
+    }
+
+    .p-carousel-content {
+      overflow: visible;
+    }
+
+    .p-carousel-item {
+      transition: opacity .5s;
+    }
+
+    .p-carousel-item:not(.p-carousel-item-active) {
+      opacity: 0.1;
+    }
+
+    .p-carousel-prev, .p-carousel-next {
+      z-index: 5;
+      height: auto !important;
+      margin: 0 !important;
+      text-align: center;
+      border-radius: 4px !important;
+      display: inline-block;
+      vertical-align: middle;
+      align-self: stretch !important;
+      @include very-small-to-medium-screen {
+        width: 6% !important;
+      }
+      @include large-to-very-large-screen {
+        width: 4% !important;
+      }
+    }
+  }
+}

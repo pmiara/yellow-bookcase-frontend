@@ -9,6 +9,8 @@ import { Bookshelf } from '../common/bookshelf.model';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BookMiniatureComponent } from './book-miniature/book-miniature.component';
 import { BookshelfComponent } from './bookshelf/bookshelf.component';
+import { CarouselModule } from 'primeng/carousel';
+import { BooksCarouselComponent } from './books-carousel/books-carousel.component';
 
 describe('BooksDashboardComponent', () => {
   let fixture: ComponentFixture<DashboardComponent>;
@@ -21,9 +23,14 @@ describe('BooksDashboardComponent', () => {
         DashboardComponent,
         CoverImgFullUrlPipe,
         BookMiniatureComponent,
-        BookshelfComponent
+        BookshelfComponent,
+        BooksCarouselComponent
       ],
-      imports: [HttpClientTestingModule, MatProgressSpinnerModule],
+      imports: [
+        HttpClientTestingModule,
+        MatProgressSpinnerModule,
+        CarouselModule
+      ],
       providers: [{ provide: BookshelvesService, useValue: spy }]
     }).compileComponents();
     bookshelvesServiceSpy = TestBed.inject(

@@ -1,0 +1,6 @@
+<p-carousel [value]="books" [numVisible]="6" [numScroll]="6" [responsiveOptions]="responsiveOptions">
+  <ng-template let-book pTemplate="item">
+    <app-book-miniature [book]="book">
+    </app-book-miniature>
+  </ng-template>
+</p-carousel>

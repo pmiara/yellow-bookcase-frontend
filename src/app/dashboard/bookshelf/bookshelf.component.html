@@ -1,5 +1,4 @@
 <h3 class="bookshelf-name">{{bookshelf.name}}</h3>
 <div class="bookshelf-content">
-  <app-book-miniature *ngFor="let book of bookshelf.books" [book]="book">
-  </app-book-miniature>
+  <app-carousel [books]="bookshelf.books"></app-carousel>
 </div>

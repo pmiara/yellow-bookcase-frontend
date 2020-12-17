@@ -14,12 +14,7 @@ describe('BookshelfComponent', () => {
     books: [
       {
         title: 'Title 1',
-        author: 'John Doe',
-        coverImg: {
-          name: 'photo.jpg',
-          url: 'foo.com/photo.jpg',
-          provider: 'foo'
-        }
+        author: 'John Doe'
       },
       {
         title: 'Title 2',

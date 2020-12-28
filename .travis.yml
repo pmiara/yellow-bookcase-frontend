@@ -1,21 +1,28 @@
 language: node_js
 node_js:
-  - 'lts/fermium' # 14.x
-
+  - lts/fermium
 addons:
   apt:
     sources:
       - google-chrome
     packages:
       - google-chrome-stable
-
 cache:
   directories:
-    - ./node_modules
-
+    - "./node_modules"
 install:
   - npm install
-
 script:
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
   - npm run lint
+  - npm run build
+deploy:
+  provider: gae
+  keyfile: secret.json
+  project: yellow-bookcase-frontend
+  on:
+    branch: main
+  skip_cleanup: true
+before_install:
+  - openssl aes-256-cbc -K $encrypted_6330fb5ca1fb_key -iv $encrypted_6330fb5ca1fb_iv
+    -in secret.json.enc -out secret.json -d

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationService } from '../common/navigation.service';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title = 'Żółta Biblioteczka';
+
+  constructor(private navService: NavigationService) {}
+
+  openSidenav(): void {
+    this.navService.openSidenav();
+  }
 }

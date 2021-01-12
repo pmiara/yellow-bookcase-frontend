@@ -1,5 +1,19 @@
-<div fxLayout fxLayoutAlign="start center">
-  <img class="logo" src="/assets/yellow-bookcase-logo.png"  alt="Logo Żółtej Biblioteczki"/>
+<button mat-icon-button fxHide fxShow.lt-md (click)="openSidenav()" class="menu-icon">
+  <mat-icon>menu</mat-icon>
+</button>
+<a routerLink="/" class="logo">
   <h1 class="title">{{title}}</h1>
-  <app-menu></app-menu>
+</a>
+<div fxHide fxShow.gt-sm class="menu">
+  <ul fxLayout class="menu-items">
+    <li>
+      <a href="#">Lista półek</a>
+    </li>
+    <li>
+      <a href="#">O Biblioteczce</a>
+    </li>
+    <li>
+      <a href="#">Zaproponuj książkę</a>
+    </li>
+  </ul>
 </div>

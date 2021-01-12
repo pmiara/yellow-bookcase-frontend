@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
+import { NavigationService } from './common/navigation.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +9,19 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public constructor(private titleService: Title) {}
+  showSidenav!: Observable<boolean>;
+
+  constructor(
+    private titleService: Title,
+    private navService: NavigationService
+  ) {}
 
   ngOnInit(): void {
+    this.showSidenav = this.navService.getShowSidenav();
     this.titleService.setTitle('Żółta Biblioteczka');
+  }
+
+  closeSidenav(): void {
+    this.navService.closeSidenav();
   }
 }

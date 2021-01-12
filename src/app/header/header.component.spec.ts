@@ -1,13 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
-import { MenuComponent } from './menu/menu.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 describe('HeaderComponent', () => {
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeaderComponent, MenuComponent]
+      declarations: [HeaderComponent],
+      imports: [MatIconModule, MatButtonModule]
     }).compileComponents();
   });
 
@@ -27,6 +29,6 @@ describe('HeaderComponent', () => {
   });
 
   it('shows a menu', () => {
-    expect(fixture.nativeElement.querySelector('app-menu')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.menu')).toBeTruthy();
   });
 });

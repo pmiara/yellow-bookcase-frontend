@@ -1,4 +1,5 @@
 @import '~src/sass/variables';
+@import '~src/sass/mixins';
 
 :host {
   @include very-small-to-medium-screen {
@@ -7,13 +8,115 @@
   @include large-to-very-large-screen {
     margin-bottom: $large-margin-between-bookshelves * 1px;
   }
-  display: block;
+  background-color: $app-dark-green;
+  padding: 16px 4%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 }
 
-.title {
-  font-family: Montserrat, sans-serif;
-  font-weight: bold;
-  font-size: 50px;
-  line-height: 61px;
-  color: $app-dark-green;
+.logo {
+  background-image: url('~src/assets/zolta-biblioteczka-logo-800-133.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  margin-right: auto;
+  text-decoration: none;
+
+  .title {
+    font-family: Montserrat, sans-serif;
+    font-weight: bold;
+    color: $app-yellow;
+    line-height: 100%;
+  }
+
+  @include very-small-screen {
+    width: 240px;
+    height: 40px;
+    .title {
+      font-size: 20px;
+      margin: 7px 0 0 41px;
+    }
+  }
+  @include small-screen {
+    width: 240px;
+    height: 40px;
+    .title {
+      font-size: 20px;
+      margin: 7px 0 0 41px;
+    }
+  }
+  @include medium-screen {
+    width: 360px;
+    height: 60px;
+    .title {
+      font-size: 31px;
+      margin: 10px 0 0 63px;
+    }
+  }
+  @include large-screen {
+    width: 480px;
+    height: 80px;
+    .title {
+      font-size: 41px;
+      margin: 13px 0 0 84px;
+    }
+  }
+  @include very-large-screen {
+    width: 480px;
+    height: 80px;
+    .title {
+      font-size: 41px;
+      margin: 13px 0 0 84px;
+    }
+  }
+}
+
+.menu {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.menu-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+
+    @include small-screen {
+      font-size: 12px;
+      margin-left: 40px;
+    }
+    @include medium-screen {
+      font-size: 13px;
+      margin-left: 22px;
+    }
+    @include large-screen {
+      font-size: 16px;
+      margin-left: 30px;
+    }
+    @include very-large-screen {
+      font-size: 18px;
+      margin-left: 51px;
+    }
+
+    &:hover, &:active {
+      color: white;
+    }
+  }
+}
+
+.menu-icon {
+  color: white;
+  margin-right: auto;
 }

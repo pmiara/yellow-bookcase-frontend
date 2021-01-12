@@ -5,7 +5,12 @@
 :host {
   display: block;
   position: relative;
-  margin-bottom: $margin-between-bookshelves * 1px;
+  @include very-small-to-medium-screen {
+    margin-bottom: $small-margin-between-bookshelves * 1px;
+  }
+  @include large-to-very-large-screen {
+    margin-bottom: $large-margin-between-bookshelves * 1px;
+  }
 }
 
 .bookshelf-content {

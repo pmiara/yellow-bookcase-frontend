@@ -1,5 +1,26 @@
 @import '~src/sass/variables';
 
+:host {
+  min-height: 100vh;
+}
+
 mat-sidenav-container {
   background-color: $app-yellow;
+  height: 100%;
 }
+
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1;
+}
+
+//app-footer {
+//  height: 100px;
+//  flex-shrink: 0;
+//  background-color: #1F321C;
+//}

@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterModule } from './footer/footer.module';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -20,7 +21,8 @@ describe('AppComponent', () => {
         MatListModule,
         MatButtonModule,
         MatIconModule,
-        NoopAnimationsModule
+        NoopAnimationsModule,
+        FooterModule
       ],
       declarations: [AppComponent]
     }).compileComponents();

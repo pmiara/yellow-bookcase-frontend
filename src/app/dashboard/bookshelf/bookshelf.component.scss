@@ -13,6 +13,11 @@
   }
 }
 
+.bookshelf-container {
+  overflow: hidden;
+  padding-bottom: $bookshelf-overflow-padding * 1px;
+}
+
 .bookshelf-content {
   padding: 20px 0;
   background-color: white;

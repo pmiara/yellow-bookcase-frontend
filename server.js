@@ -7,14 +7,17 @@ function enforceHTTPS(req, res, next) {
   next();
 }
 
-const app = express();
-app.use(enforceHTTPS);
-app.use(express.static('./dist/yellow-bookcase'));
+const appDirectory = 'dist/yellow-bookcase';
+const port = process.env.PORT || 8080;
 
-app.get('/*', (req, res) =>
-  res.sendFile('index.html', { root: 'dist/yellow-bookcase/' })
+const app = express();
+
+app.use(enforceHTTPS);
+app.get("*.*", express.static(appDirectory));
+
+app.all("*", (req, res) =>
+  res.status(200).sendFile('/', { root: appDirectory })
 );
 
-const port = process.env.PORT || 8080;
 
 app.listen(port, () => console.log('Frontend server running on port %d', port));

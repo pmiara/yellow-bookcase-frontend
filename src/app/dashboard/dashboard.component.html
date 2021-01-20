@@ -1,6 +1,6 @@
 <ng-container *ngIf="bookshelves$ | async as bookshelves; else loading">
   <ng-container *ngFor="let bookshelf of bookshelves">
-    <app-bookshelf *ngIf="bookshelf.books.length > 0" [bookshelf]="bookshelf">
+    <app-bookshelf [bookshelf]="bookshelf">
     </app-bookshelf>
   </ng-container>
 </ng-container>

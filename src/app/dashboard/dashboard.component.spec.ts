@@ -17,7 +17,7 @@ describe('BooksDashboardComponent', () => {
   let bookshelvesServiceSpy: jasmine.SpyObj<BookshelvesService>;
 
   beforeEach(async () => {
-    const spy = jasmine.createSpyObj('BookshelfService', ['getBookshelves']);
+    const spy = jasmine.createSpyObj('BookshelvesService', ['getBookshelves']);
     await TestBed.configureTestingModule({
       declarations: [
         DashboardComponent,
@@ -71,32 +71,6 @@ describe('BooksDashboardComponent', () => {
     const bookshelves = fixture.nativeElement.querySelectorAll('app-bookshelf');
 
     expect(bookshelves.length).toBe(2);
-  });
-
-  it('shows only bookshelves with books', () => {
-    const bookshelvesData: Bookshelf[] = [
-      {
-        id: 1,
-        name: 'First bookshelf',
-        books: [
-          {
-            title: 'Title 1',
-            author: 'John Doe'
-          }
-        ]
-      },
-      {
-        id: 2,
-        name: 'Empty bookshelf',
-        books: []
-      }
-    ];
-    bookshelvesServiceSpy.getBookshelves.and.returnValue(of(bookshelvesData));
-    fixture = TestBed.createComponent(DashboardComponent);
-    fixture.detectChanges();
-    const bookshelves = fixture.nativeElement.querySelectorAll('app-bookshelf');
-
-    expect(bookshelves.length).toBe(1);
   });
 
   it('shows a progress indicator while waiting for data', () => {

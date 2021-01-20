@@ -33,6 +33,7 @@ export class BookshelvesService {
         ids
           .map((id) => bookshelves.find((bookshelf) => id === bookshelf.id))
           .filter((x): x is Bookshelf => x !== undefined)
+          .filter((bookshelf) => bookshelf.books.length > 0)
       )
     );
   }

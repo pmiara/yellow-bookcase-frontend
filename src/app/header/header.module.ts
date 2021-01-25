@@ -5,6 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [HeaderComponent],
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
     FlexLayoutModule,
     MatButtonModule,
     MatIconModule,
-    RouterModule
+    RouterModule,
+    MatMenuModule
   ],
   exports: [HeaderComponent]
 })

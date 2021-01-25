@@ -7,13 +7,25 @@
 <div fxHide fxShow.gt-sm class="menu">
   <ul fxLayout class="menu-items">
     <li>
-      <a href="#">Lista półek</a>
+      <span class="bookshelves-list-link" [matMenuTriggerFor]="bookshelvesListMenu">
+        Lista półek
+        <mat-icon>expand_more</mat-icon>
+      </span>
+      <mat-menu #bookshelvesListMenu="matMenu">
+        <div class="bookshelves-list-menu" *ngIf="bookshelves$ | async as bookshelves">
+          <button mat-menu-item
+                  *ngFor="let bookshelf of bookshelves"
+                  (click)="onBookshelfListMenuClick(bookshelf)">
+            {{bookshelf.name}}
+          </button>
+        </div>
+      </mat-menu>
     </li>
     <li>
-      <a href="#">O Biblioteczce</a>
+      <a href="#"><span>O Biblioteczce</span></a>
     </li>
     <li>
-      <a href="#">Zaproponuj książkę</a>
+      <a href="#"><span>Zaproponuj książkę</span></a>
     </li>
   </ul>
 </div>

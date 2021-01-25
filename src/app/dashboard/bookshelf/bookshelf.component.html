@@ -1,4 +1,4 @@
-<div class="bookshelf-container">
+<div class="bookshelf-container" [id]="bookshelf.name">
   <h3 class="bookshelf-name">{{bookshelf.name}}</h3>
   <div class="bookshelf-content">
     <app-carousel [books]="bookshelf.books"></app-carousel>

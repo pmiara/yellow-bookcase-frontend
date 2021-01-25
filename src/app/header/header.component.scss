@@ -87,6 +87,10 @@
 
   a {
     text-decoration: none;
+  }
+
+  span {
+    cursor: pointer;
     color: white;
     font-family: Montserrat, sans-serif;
     font-weight: 700;
@@ -112,6 +116,10 @@
 
     &:hover, &:active {
       color: white;
+    }
+
+    mat-icon {
+      vertical-align: middle;
     }
   }
 }

@@ -1,12 +1,14 @@
 <div class="book-card-wrapper">
-  <div class="book-card-content">
-    <img class="cover-img" *ngIf="book.coverImg; else noCoverImg" src="{{book.coverImg | coverImgFullUrl}}"
-         alt="{{book.coverImg.name}}">
-    <div class="book-details">
-      <h4 class="title">{{book.title}}</h4>
-      <h5 class="author">{{book.author}}</h5>
+  <a [routerLink]="['/book', book.id]">
+    <div class="book-card-content">
+      <img class="cover-img" *ngIf="book.coverImg; else noCoverImg" src="{{book.coverImg | coverImgFullUrl}}"
+           alt="{{book.coverImg.name}}">
+      <div class="book-details">
+        <h4 class="title">{{book.title}}</h4>
+        <h5 class="author">{{book.author}}</h5>
+      </div>
     </div>
-  </div>
+  </a>
 </div>
 
 <ng-template #noCoverImg>

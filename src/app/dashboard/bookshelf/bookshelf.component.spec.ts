@@ -5,6 +5,7 @@ import { BookMiniatureComponent } from '../book-miniature/book-miniature.compone
 import { BookshelfComponent } from './bookshelf.component';
 import { BooksCarouselComponent } from '../books-carousel/books-carousel.component';
 import { CarouselModule } from 'primeng/carousel';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('BookshelfComponent', () => {
   let fixture: ComponentFixture<BookshelfComponent>;
@@ -33,7 +34,7 @@ describe('BookshelfComponent', () => {
         BookshelfComponent,
         BooksCarouselComponent
       ],
-      imports: [CarouselModule]
+      imports: [CarouselModule, RouterTestingModule]
     }).compileComponents();
   });
 

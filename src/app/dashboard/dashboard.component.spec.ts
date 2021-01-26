@@ -11,6 +11,7 @@ import { BookMiniatureComponent } from './book-miniature/book-miniature.componen
 import { BookshelfComponent } from './bookshelf/bookshelf.component';
 import { CarouselModule } from 'primeng/carousel';
 import { BooksCarouselComponent } from './books-carousel/books-carousel.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('BooksDashboardComponent', () => {
   let fixture: ComponentFixture<DashboardComponent>;
@@ -29,7 +30,8 @@ describe('BooksDashboardComponent', () => {
       imports: [
         HttpClientTestingModule,
         MatProgressSpinnerModule,
-        CarouselModule
+        CarouselModule,
+        RouterTestingModule
       ],
       providers: [{ provide: BookshelvesService, useValue: spy }]
     }).compileComponents();

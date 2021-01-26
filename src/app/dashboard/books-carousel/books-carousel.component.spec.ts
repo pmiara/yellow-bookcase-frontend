@@ -5,6 +5,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { Book } from '../../common/book.model';
 import { CoverImgFullUrlPipe } from '../cover-img-pipe/cover-img-full-url.pipe';
 import { BookMiniatureComponent } from '../book-miniature/book-miniature.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('CarouselComponent', () => {
   let fixture: ComponentFixture<BooksCarouselComponent>;
@@ -28,7 +29,7 @@ describe('CarouselComponent', () => {
         BookMiniatureComponent,
         BooksCarouselComponent
       ],
-      imports: [CarouselModule]
+      imports: [CarouselModule, RouterTestingModule]
     }).compileComponents();
   });
 

@@ -10,6 +10,7 @@ import { BookshelfComponent } from './bookshelf/bookshelf.component';
 import { BookMiniatureComponent } from './book-miniature/book-miniature.component';
 import { CarouselModule } from 'primeng/carousel';
 import { BooksCarouselComponent } from './books-carousel/books-carousel.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BooksCarouselComponent } from './books-carousel/books-carousel.componen
     MatButtonModule,
     FlexLayoutModule,
     MatProgressSpinnerModule,
-    CarouselModule
+    CarouselModule,
+    RouterModule
   ]
 })
 export class DashboardModule {}

@@ -14,11 +14,13 @@ describe('BookshelfComponent', () => {
     books: [
       {
         title: 'Title 1',
-        author: 'John Doe'
+        author: 'John Doe',
+        id: 1
       },
       {
         title: 'Title 2',
-        author: 'Julia Smith'
+        author: 'Julia Smith',
+        id: 2
       }
     ]
   };

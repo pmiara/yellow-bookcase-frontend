@@ -4,4 +4,5 @@ export interface Book {
   title: string;
   author: string;
   coverImg?: CoverImg;
+  id: number;
 }

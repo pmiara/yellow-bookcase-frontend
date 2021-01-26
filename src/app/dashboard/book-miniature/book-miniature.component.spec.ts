@@ -12,7 +12,8 @@ describe('BookMiniatureComponent', () => {
       name: 'photo.jpg',
       url: 'http://foo.com/photo.jpg',
       provider: 'non-local'
-    }
+    },
+    id: 1
   };
 
   beforeEach(async () => {
@@ -34,7 +35,8 @@ describe('BookMiniatureComponent', () => {
   it('given a book without a cover image shows the no-book-cover image', () => {
     const noCoverBookData: Book = {
       title: 'Coverless books',
-      author: 'John Doe'
+      author: 'John Doe',
+      id: 1
     };
     fixture = TestBed.createComponent(BookMiniatureComponent);
     fixture.componentInstance.book = noCoverBookData;

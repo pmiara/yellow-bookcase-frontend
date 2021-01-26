@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Book } from '../../common/book.model';
+import { Carousel } from 'primeng/carousel';
 
 @Component({
   selector: 'app-carousel',
@@ -31,4 +32,10 @@ export class BooksCarouselComponent {
       numScroll: 5
     }
   ];
+
+  constructor() {
+    Carousel.prototype.onTouchMove = () => {
+      // prevent default behavior to make scrolling work on mobile devices
+    };
+  }
 }

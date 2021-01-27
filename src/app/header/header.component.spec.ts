@@ -8,6 +8,7 @@ import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatMenuModule } from '@angular/material/menu';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HeaderComponent', () => {
   let fixture: ComponentFixture<HeaderComponent>;
@@ -34,7 +35,8 @@ describe('HeaderComponent', () => {
         MatButtonModule,
         HttpClientTestingModule,
         MatMenuModule,
-        NoopAnimationsModule
+        NoopAnimationsModule,
+        RouterTestingModule
       ],
       providers: [{ provide: BookshelvesService, useValue: spy }]
     }).compileComponents();

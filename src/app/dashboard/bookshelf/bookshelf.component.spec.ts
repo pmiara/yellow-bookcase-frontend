@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CoverImgFullUrlPipe } from '../cover-img-pipe/cover-img-full-url.pipe';
-import { Bookshelf } from '../../models/bookshelf.model';
 import { BookMiniatureComponent } from '../book-miniature/book-miniature.component';
 import { BookshelfComponent } from './bookshelf.component';
 import { BooksCarouselComponent } from '../books-carousel/books-carousel.component';
 import { CarouselModule } from 'primeng/carousel';
 import { RouterTestingModule } from '@angular/router/testing';
+import { BookshelfWithBooks } from '../../models/bookshelf-with-books.model';
 
 describe('BookshelfComponent', () => {
   let fixture: ComponentFixture<BookshelfComponent>;
-  const bookshelfData: Bookshelf = {
+  const bookshelfData: BookshelfWithBooks = {
     id: 1,
     name: 'Bookshelf name',
     books: [

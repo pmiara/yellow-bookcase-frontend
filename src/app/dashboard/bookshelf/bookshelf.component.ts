@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Bookshelf } from '../../models/bookshelf.model';
+import { BookshelfWithBooks } from '../../models/bookshelf-with-books.model';
 
 @Component({
   selector: 'app-bookshelf',
@@ -7,5 +7,5 @@ import { Bookshelf } from '../../models/bookshelf.model';
   styleUrls: ['./bookshelf.component.scss']
 })
 export class BookshelfComponent {
-  @Input() bookshelf!: Bookshelf;
+  @Input() bookshelf!: BookshelfWithBooks;
 }

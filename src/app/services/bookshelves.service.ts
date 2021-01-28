@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Bookshelf } from '../models/bookshelf.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { EnvironmentService } from './environment.service';
 import { WebsiteConfiguration } from '../models/website-configuration.model';
 import { map } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
+import { BookshelfWithBooks } from '../models/bookshelf-with-books.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class BookshelvesService {
     private environmentService: EnvironmentService
   ) {}
 
-  getBookshelves(): Observable<Bookshelf[]> {
+  getBookshelvesWithBooks(): Observable<BookshelfWithBooks[]> {
     const apiUrl = this.environmentService.getEnvConfig().apiUrl;
     const bookshelfIdsOrdered = this.http
       .get<WebsiteConfiguration>(apiUrl + '/website-configuration')
@@ -27,12 +27,12 @@ export class BookshelvesService {
 
     return combineLatest([
       bookshelfIdsOrdered,
-      this.http.get<Bookshelf[]>(apiUrl + '/bookshelves')
+      this.http.get<BookshelfWithBooks[]>(apiUrl + '/bookshelves')
     ]).pipe(
       map(([ids, bookshelves]) =>
         ids
           .map((id) => bookshelves.find((bookshelf) => id === bookshelf.id))
-          .filter((x): x is Bookshelf => x !== undefined)
+          .filter((x): x is BookshelfWithBooks => x !== undefined)
           .filter((bookshelf) => bookshelf.books.length > 0)
       )
     );

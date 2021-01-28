@@ -3,17 +3,17 @@ import { HeaderComponent } from './header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { BookshelvesService } from '../services/bookshelves.service';
-import { Bookshelf } from '../models/bookshelf.model';
 import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MatMenuModule } from '@angular/material/menu';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { BookshelfWithBooks } from '../models/bookshelf-with-books.model';
 
 describe('HeaderComponent', () => {
   let fixture: ComponentFixture<HeaderComponent>;
   let bookshelvesServiceSpy: jasmine.SpyObj<BookshelvesService>;
-  const bookshelvesData: Bookshelf[] = [
+  const bookshelvesData: BookshelfWithBooks[] = [
     {
       id: 1,
       name: 'First bookshelf',
@@ -27,7 +27,9 @@ describe('HeaderComponent', () => {
   ];
 
   beforeEach(async () => {
-    const spy = jasmine.createSpyObj('BookshelvesService', ['getBookshelves']);
+    const spy = jasmine.createSpyObj('BookshelvesService', [
+      'getBookshelvesWithBooks'
+    ]);
     await TestBed.configureTestingModule({
       declarations: [HeaderComponent],
       imports: [
@@ -43,7 +45,9 @@ describe('HeaderComponent', () => {
     bookshelvesServiceSpy = TestBed.inject(
       BookshelvesService
     ) as jasmine.SpyObj<BookshelvesService>;
-    bookshelvesServiceSpy.getBookshelves.and.returnValue(of(bookshelvesData));
+    bookshelvesServiceSpy.getBookshelvesWithBooks.and.returnValue(
+      of(bookshelvesData)
+    );
 
     fixture = TestBed.createComponent(HeaderComponent);
     fixture.detectChanges();

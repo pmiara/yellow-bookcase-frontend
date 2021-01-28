@@ -5,20 +5,22 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BookshelvesService } from '../services/bookshelves.service';
 import { of } from 'rxjs';
 import { CoverImgFullUrlPipe } from './cover-img-pipe/cover-img-full-url.pipe';
-import { Bookshelf } from '../models/bookshelf.model';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BookMiniatureComponent } from './book-miniature/book-miniature.component';
 import { BookshelfComponent } from './bookshelf/bookshelf.component';
 import { CarouselModule } from 'primeng/carousel';
 import { BooksCarouselComponent } from './books-carousel/books-carousel.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { BookshelfWithBooks } from '../models/bookshelf-with-books.model';
 
 describe('BooksDashboardComponent', () => {
   let fixture: ComponentFixture<DashboardComponent>;
   let bookshelvesServiceSpy: jasmine.SpyObj<BookshelvesService>;
 
   beforeEach(async () => {
-    const spy = jasmine.createSpyObj('BookshelvesService', ['getBookshelves']);
+    const spy = jasmine.createSpyObj('BookshelvesService', [
+      'getBookshelvesWithBooks'
+    ]);
     await TestBed.configureTestingModule({
       declarations: [
         DashboardComponent,
@@ -41,7 +43,7 @@ describe('BooksDashboardComponent', () => {
   });
 
   it('shows bookshelves', () => {
-    const bookshelvesData: Bookshelf[] = [
+    const bookshelvesData: BookshelfWithBooks[] = [
       {
         id: 1,
         name: 'First bookshelf',
@@ -70,7 +72,9 @@ describe('BooksDashboardComponent', () => {
         ]
       }
     ];
-    bookshelvesServiceSpy.getBookshelves.and.returnValue(of(bookshelvesData));
+    bookshelvesServiceSpy.getBookshelvesWithBooks.and.returnValue(
+      of(bookshelvesData)
+    );
     fixture = TestBed.createComponent(DashboardComponent);
     fixture.detectChanges();
     const bookshelves = fixture.nativeElement.querySelectorAll('app-bookshelf');
@@ -79,7 +83,7 @@ describe('BooksDashboardComponent', () => {
   });
 
   it('shows a progress indicator while waiting for data', () => {
-    bookshelvesServiceSpy.getBookshelves.and.returnValue(
+    bookshelvesServiceSpy.getBookshelvesWithBooks.and.returnValue(
       of([]).pipe(delay(1000))
     );
     fixture = TestBed.createComponent(DashboardComponent);

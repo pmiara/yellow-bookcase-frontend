@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookshelvesService } from '../services/bookshelves.service';
-import { Bookshelf } from '../models/bookshelf.model';
 import { Observable } from 'rxjs';
+import { BookshelfWithBooks } from '../models/bookshelf-with-books.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,11 +9,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  bookshelves$!: Observable<Bookshelf[]>;
+  bookshelves$!: Observable<BookshelfWithBooks[]>;
 
   constructor(private bookshelvesService: BookshelvesService) {}
 
   ngOnInit(): void {
-    this.bookshelves$ = this.bookshelvesService.getBookshelves();
+    this.bookshelves$ = this.bookshelvesService.getBookshelvesWithBooks();
   }
 }

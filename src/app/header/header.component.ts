@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.bookshelves$ = this.bookshelvesService.getBookshelves();
+    this.bookshelves$ = this.bookshelvesService.getBookshelvesWithBooks();
   }
 
   openSidenav(): void {

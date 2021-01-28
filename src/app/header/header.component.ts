@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationService } from '../common/navigation.service';
-import { BookshelvesService } from '../dashboard/bookshelves.service';
+import { NavigationService } from '../services/navigation.service';
+import { BookshelvesService } from '../services/bookshelves.service';
 import { Observable } from 'rxjs';
-import { Bookshelf } from '../common/bookshelf.model';
+import { Bookshelf } from '../models/bookshelf.model';
 import { Router } from '@angular/router';
 
 @Component({

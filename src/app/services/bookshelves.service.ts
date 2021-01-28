@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Bookshelf } from '../common/bookshelf.model';
+import { Bookshelf } from '../models/bookshelf.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { EnvironmentService } from '../common/environment.service';
-import { WebsiteConfiguration } from '../common/website-configuration.model';
+import { EnvironmentService } from './environment.service';
+import { WebsiteConfiguration } from '../models/website-configuration.model';
 import { map } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 

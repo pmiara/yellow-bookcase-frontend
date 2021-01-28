@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Book } from '../../common/book.model';
+import { Book } from '../../models/book.model';
 import { Carousel } from 'primeng/carousel';
 
 @Component({

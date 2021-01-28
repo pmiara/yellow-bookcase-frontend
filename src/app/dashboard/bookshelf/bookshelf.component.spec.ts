@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CoverImgFullUrlPipe } from '../cover-img-pipe/cover-img-full-url.pipe';
-import { Bookshelf } from '../../common/bookshelf.model';
+import { Bookshelf } from '../../models/bookshelf.model';
 import { BookMiniatureComponent } from '../book-miniature/book-miniature.component';
 import { BookshelfComponent } from './bookshelf.component';
 import { BooksCarouselComponent } from '../books-carousel/books-carousel.component';

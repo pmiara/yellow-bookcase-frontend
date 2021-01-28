@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
-import { NavigationService } from './common/navigation.service';
+import { NavigationService } from './services/navigation.service';
 
 @Component({
   selector: 'app-root',

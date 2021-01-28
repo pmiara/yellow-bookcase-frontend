@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CoverImgFullUrlPipe } from '../cover-img-pipe/cover-img-full-url.pipe';
 import { BookMiniatureComponent } from './book-miniature.component';
-import { Book } from '../../common/book.model';
+import { Book } from '../../models/book.model';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('BookMiniatureComponent', () => {

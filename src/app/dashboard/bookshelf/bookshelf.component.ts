@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Bookshelf } from '../../common/bookshelf.model';
+import { Bookshelf } from '../../models/bookshelf.model';
 
 @Component({
   selector: 'app-bookshelf',

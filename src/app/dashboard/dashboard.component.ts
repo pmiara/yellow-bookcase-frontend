@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BookshelvesService } from './bookshelves.service';
-import { Bookshelf } from '../common/bookshelf.model';
+import { BookshelvesService } from '../services/bookshelves.service';
+import { Bookshelf } from '../models/bookshelf.model';
 import { Observable } from 'rxjs';
 
 @Component({

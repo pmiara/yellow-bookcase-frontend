@@ -1,4 +1,5 @@
 @import '~src/sass/variables';
+@import '~src/sass/mixins';
 
 :host {
   min-height: 100vh;
@@ -17,4 +18,11 @@ mat-sidenav-content {
 
 .content {
   flex: 1;
+  display: block;
+  @include very-small-to-medium-screen {
+    padding: ($small-margin-between-bookshelves * 1px) 0;
+  }
+  @include large-to-very-large-screen {
+    padding: ($large-margin-between-bookshelves * 1px) 0;
+  }
 }

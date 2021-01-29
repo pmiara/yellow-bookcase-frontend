@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CoverImgFullUrlPipe } from '../cover-img-pipe/cover-img-full-url.pipe';
 import { BookMiniatureComponent } from './book-miniature.component';
 import { Book } from '../../models/book.model';
 import { RouterTestingModule } from '@angular/router/testing';
+import { UtilsModule } from '../../utils/utils.module';
 
 describe('BookMiniatureComponent', () => {
   let fixture: ComponentFixture<BookMiniatureComponent>;
@@ -19,8 +19,8 @@ describe('BookMiniatureComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CoverImgFullUrlPipe, BookMiniatureComponent],
-      imports: [RouterTestingModule]
+      declarations: [BookMiniatureComponent],
+      imports: [RouterTestingModule, UtilsModule]
     }).compileComponents();
   });
 

@@ -4,18 +4,17 @@ import { DashboardComponent } from './dashboard.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { CoverImgFullUrlPipe } from './cover-img-pipe/cover-img-full-url.pipe';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BookshelfComponent } from './bookshelf/bookshelf.component';
 import { BookMiniatureComponent } from './book-miniature/book-miniature.component';
 import { CarouselModule } from 'primeng/carousel';
 import { BooksCarouselComponent } from './books-carousel/books-carousel.component';
 import { RouterModule } from '@angular/router';
+import { UtilsModule } from '../utils/utils.module';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    CoverImgFullUrlPipe,
     BookshelfComponent,
     BookMiniatureComponent,
     BooksCarouselComponent
@@ -27,7 +26,8 @@ import { RouterModule } from '@angular/router';
     FlexLayoutModule,
     MatProgressSpinnerModule,
     CarouselModule,
-    RouterModule
+    RouterModule,
+    UtilsModule
   ]
 })
 export class DashboardModule {}

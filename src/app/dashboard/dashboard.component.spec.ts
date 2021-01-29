@@ -4,7 +4,6 @@ import { DashboardComponent } from './dashboard.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BookshelvesService } from '../services/bookshelves.service';
 import { of } from 'rxjs';
-import { CoverImgFullUrlPipe } from './cover-img-pipe/cover-img-full-url.pipe';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BookMiniatureComponent } from './book-miniature/book-miniature.component';
 import { BookshelfComponent } from './bookshelf/bookshelf.component';
@@ -12,6 +11,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { BooksCarouselComponent } from './books-carousel/books-carousel.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BookshelfWithBooks } from '../models/bookshelf-with-books.model';
+import { UtilsModule } from '../utils/utils.module';
 
 describe('BooksDashboardComponent', () => {
   let fixture: ComponentFixture<DashboardComponent>;
@@ -24,7 +24,6 @@ describe('BooksDashboardComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [
         DashboardComponent,
-        CoverImgFullUrlPipe,
         BookMiniatureComponent,
         BookshelfComponent,
         BooksCarouselComponent
@@ -33,7 +32,8 @@ describe('BooksDashboardComponent', () => {
         HttpClientTestingModule,
         MatProgressSpinnerModule,
         CarouselModule,
-        RouterTestingModule
+        RouterTestingModule,
+        UtilsModule
       ],
       providers: [{ provide: BookshelvesService, useValue: spy }]
     }).compileComponents();

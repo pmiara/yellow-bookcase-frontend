@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CoverImgFullUrlPipe } from '../cover-img-pipe/cover-img-full-url.pipe';
 import { BookMiniatureComponent } from '../book-miniature/book-miniature.component';
 import { BookshelfComponent } from './bookshelf.component';
 import { BooksCarouselComponent } from '../books-carousel/books-carousel.component';
 import { CarouselModule } from 'primeng/carousel';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BookshelfWithBooks } from '../../models/bookshelf-with-books.model';
+import { UtilsModule } from '../../utils/utils.module';
 
 describe('BookshelfComponent', () => {
   let fixture: ComponentFixture<BookshelfComponent>;
@@ -29,12 +29,11 @@ describe('BookshelfComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        CoverImgFullUrlPipe,
         BookMiniatureComponent,
         BookshelfComponent,
         BooksCarouselComponent
       ],
-      imports: [CarouselModule, RouterTestingModule]
+      imports: [CarouselModule, RouterTestingModule, UtilsModule]
     }).compileComponents();
   });
 

@@ -1,0 +1,24 @@
+@import '~src/sass/mixins';
+
+.content {
+  padding: 0 4%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cover-img, .text-info {
+  flex-basis: 0;
+}
+
+.cover-img {
+  flex-grow: 1;
+  min-width: 200px;
+  max-width: 80%;
+}
+
+.text-info {
+  flex-grow: 3;
+  min-width: 250px;
+}

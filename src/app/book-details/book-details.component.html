@@ -1,2 +1,20 @@
-<p>Book id: {{bookId}}</p>
-<p>book-details works!</p>
+<div class="content" *ngIf="book$ | async as book; else loading" fxLayoutGap="10px">
+  <div class="text-info">
+    <h2 class="title">{{book.title}}</h2>
+    <h3 class="author">{{book.author}}</h3>
+    <p>Na półkach:</p>
+    <ul class="bookshelves">
+      <li *ngFor="let bookshelf of book.bookshelves">{{bookshelf.name}}</li>
+    </ul>
+  </div>
+  <img class="cover-img" *ngIf="book.coverImg; else noCoverImg" src="{{book.coverImg | coverImgFullUrl}}"
+       alt="{{book.coverImg.name}}">
+</div>
+
+<ng-template #noCoverImg>
+  <img class="cover-img" src="/assets/no_book_cover.png" alt="Okładka zastępcza">
+</ng-template>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

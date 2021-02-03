@@ -1,0 +1,8 @@
+<ng-container *ngIf="config$ | async as config; else loading">
+  <h2 class="title">{{config.title}}</h2>
+  <p class="content">{{config.content}}</p>
+</ng-container>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

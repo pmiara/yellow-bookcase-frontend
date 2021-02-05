@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FooterModule } from './footer/footer.module';
 import { BookDetailsModule } from './book-details/book-details.module';
+import { AboutPageModule } from './about-page/about-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +28,8 @@ import { BookDetailsModule } from './book-details/book-details.module';
     MatButtonModule,
     MatIconModule,
     FooterModule,
-    BookDetailsModule
+    BookDetailsModule,
+    AboutPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

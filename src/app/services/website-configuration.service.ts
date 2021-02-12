@@ -21,6 +21,12 @@ export class WebsiteConfigurationService {
     );
   }
 
+  getBookSuggestionFormUrl(): Observable<string> {
+    return this.getWebsiteConfiguration().pipe(
+      map((config) => config.bookSuggestionFormUrl)
+    );
+  }
+
   private getWebsiteConfiguration(): Observable<WebsiteConfiguration> {
     const apiUrl = this.environmentService.getEnvConfig().apiUrl;
     return this.http.get<WebsiteConfiguration>(

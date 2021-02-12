@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { EnvironmentService } from './environment.service';
-import { WebsiteConfiguration } from '../models/website-configuration.model';
 import { map } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
 import { BookshelfWithBooks } from '../models/bookshelf-with-books.model';
+import { WebsiteConfigurationService } from './website-configuration.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +13,13 @@ import { BookshelfWithBooks } from '../models/bookshelf-with-books.model';
 export class BookshelvesService {
   constructor(
     private http: HttpClient,
-    private environmentService: EnvironmentService
+    private environmentService: EnvironmentService,
+    private configService: WebsiteConfigurationService
   ) {}
 
   getBookshelvesWithBooks(): Observable<BookshelfWithBooks[]> {
     const apiUrl = this.environmentService.getEnvConfig().apiUrl;
-    const bookshelfIdsOrdered = this.http
-      .get<WebsiteConfiguration>(apiUrl + '/website-configuration')
-      .pipe(
-        map((config) => config.BookshelvesOrdering),
-        map((orderingItems) => orderingItems.map((x) => x.bookshelf.id))
-      );
+    const bookshelfIdsOrdered = this.configService.getOrderedBookshelfIds();
 
     return combineLatest([
       bookshelfIdsOrdered,

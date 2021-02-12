@@ -3,7 +3,12 @@
     <mat-nav-list>
       <a routerLink="/" mat-list-item>Strona Główna</a>
       <a routerLink="/about" mat-list-item>O Biblioteczce</a>
-      <a mat-list-item>Zaproponuj książkę</a>
+      <ng-container *ngIf="bookSuggestionFormUrl$ | async as bookSuggestionFormUrl; else bookSuggestionLinkNotLoaded">
+        <a mat-list-item [href]="bookSuggestionFormUrl" target="_blank" class="suggest-book">Zaproponuj książkę</a>
+      </ng-container>
+      <ng-template #bookSuggestionLinkNotLoaded>
+        <a href="#" mat-list-item>Zaproponuj książkę</a>
+      </ng-template>
     </mat-nav-list>
     <button mat-icon-button (click)="closeSidenav()">
       <mat-icon>close</mat-icon>

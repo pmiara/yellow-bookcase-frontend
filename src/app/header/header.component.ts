@@ -4,6 +4,7 @@ import { BookshelvesService } from '../services/bookshelves.service';
 import { Observable } from 'rxjs';
 import { Bookshelf } from '../models/bookshelf.model';
 import { Router } from '@angular/router';
+import { WebsiteConfigurationService } from '../services/website-configuration.service';
 
 @Component({
   selector: 'app-header',
@@ -13,15 +14,18 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   title = 'Żółta Biblioteczka';
   bookshelves$!: Observable<Bookshelf[]>;
+  bookSuggestionFormUrl$!: Observable<string>;
 
   constructor(
     private navService: NavigationService,
     private bookshelvesService: BookshelvesService,
-    private router: Router
+    private router: Router,
+    private configService: WebsiteConfigurationService
   ) {}
 
   ngOnInit(): void {
     this.bookshelves$ = this.bookshelvesService.getBookshelvesWithBooks();
+    this.bookSuggestionFormUrl$ = this.configService.getBookSuggestionFormUrl();
   }
 
   openSidenav(): void {

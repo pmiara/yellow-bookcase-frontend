@@ -25,7 +25,12 @@
       <a routerLink="/about"><span>O Biblioteczce</span></a>
     </li>
     <li>
-      <a href="#"><span>Zaproponuj książkę</span></a>
+      <ng-container *ngIf="bookSuggestionFormUrl$ | async as bookSuggestionFormUrl; else bookSuggestionLinkNotLoaded">
+        <a [href]="bookSuggestionFormUrl" target="_blank" class="suggest-book"><span>Zaproponuj książkę</span></a>
+      </ng-container>
+      <ng-template #bookSuggestionLinkNotLoaded>
+        <a href="#" class="suggest-book"><span>Zaproponuj książkę</span></a>
+      </ng-template>
     </li>
   </ul>
 </div>

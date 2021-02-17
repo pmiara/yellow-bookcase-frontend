@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { NavigationService } from './services/navigation.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { WebsiteConfigurationService } from './services/website-configuration.service';
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+declare let gtag: Function;
 
 @Component({
   selector: 'app-root',
@@ -20,7 +23,12 @@ export class AppComponent implements OnInit {
     private router: Router,
     private configService: WebsiteConfigurationService
   ) {
-    this.router.events.subscribe(() => {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        gtag('config', 'G-VFT8FMN4TP', {
+          page_path: event.urlAfterRedirects
+        });
+      }
       this.navService.closeSidenav();
     });
     this.bookSuggestionFormUrl$ = this.configService.getBookSuggestionFormUrl();

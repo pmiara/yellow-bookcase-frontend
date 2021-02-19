@@ -2,6 +2,10 @@
   <div class="text-info">
     <h2 class="title">{{book.title}}</h2>
     <h3 class="author">{{book.author}}</h3>
+    <p *ngIf="book.description" class="description">{{book.description}}</p>
+    <p *ngIf="book.addedBy" class="added-by">Dodana przez: {{book.addedBy}}</p>
+    <p *ngIf="book.lubimyCzytacUrl" class="lubimy-czytac-url">
+      Więcej info: <a [href]="book.lubimyCzytacUrl" target="_blank">link</a></p>
     <p>Na półkach:</p>
     <ul class="bookshelves">
       <li *ngFor="let bookshelf of book.bookshelves">{{bookshelf.name}}</li>

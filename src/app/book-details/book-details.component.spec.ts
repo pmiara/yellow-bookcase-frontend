@@ -23,7 +23,10 @@ describe('BookDetailsComponent', () => {
     bookshelves: [
       { name: 'Books for kids', id: 1 },
       { name: 'Books not for kids', id: 2 }
-    ]
+    ],
+    description: 'This is a very nice book',
+    addedBy: 'Bookman Adder',
+    lubimyCzytacUrl: 'http://example.com/book-title'
   };
 
   beforeEach(async () => {
@@ -53,6 +56,24 @@ describe('BookDetailsComponent', () => {
     expect(fixture.nativeElement.querySelector('.author').innerText).toEqual(
       'John Doe'
     );
+  });
+
+  it('shows the description', () => {
+    expect(
+      fixture.nativeElement.querySelector('.description').innerText
+    ).toEqual('This is a very nice book');
+  });
+
+  it('shows the name of the person who added the book', () => {
+    expect(fixture.nativeElement.querySelector('.added-by').innerText).toEqual(
+      'Dodana przez: Bookman Adder'
+    );
+  });
+
+  it('shows the URL to lubimyczytac website', () => {
+    const link = fixture.nativeElement.querySelector('.lubimy-czytac-url a');
+    expect(link.innerText).toEqual('link');
+    expect(link.getAttribute('href')).toEqual('http://example.com/book-title');
   });
 
   it('shows the bookshelves that contain this book', () => {

@@ -6,6 +6,8 @@ import { BookDetailsComponent } from './book-details.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BooksService } from '../services/books.service';
 import { of } from 'rxjs';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 describe('BookDetailsComponent', () => {
   let fixture: ComponentFixture<BookDetailsComponent>;
@@ -35,7 +37,13 @@ describe('BookDetailsComponent', () => {
     ]);
     await TestBed.configureTestingModule({
       declarations: [BookDetailsComponent],
-      imports: [RouterTestingModule, UtilsModule, HttpClientTestingModule],
+      imports: [
+        RouterTestingModule,
+        UtilsModule,
+        HttpClientTestingModule,
+        MatDividerModule,
+        MatListModule
+      ],
       providers: [{ provide: BooksService, useValue: spy }]
     }).compileComponents();
     booksServiceSpy = TestBed.inject(BooksService) as jasmine.SpyObj<
@@ -54,7 +62,7 @@ describe('BookDetailsComponent', () => {
 
   it('shows the author', () => {
     expect(fixture.nativeElement.querySelector('.author').innerText).toEqual(
-      'John Doe'
+      'Autor: John Doe'
     );
   });
 
@@ -79,10 +87,7 @@ describe('BookDetailsComponent', () => {
   it('shows the bookshelves that contain this book', () => {
     expect(
       fixture.nativeElement.querySelector('.bookshelves').innerText
-    ).toContain('Books not for kids');
-    expect(
-      fixture.nativeElement.querySelector('.bookshelves').innerText
-    ).toContain('Books for kids');
+    ).toContain('Na półkach: Books for kids, Books not for kids');
   });
 
   it('given the book with the cover image shows the cover image', () => {

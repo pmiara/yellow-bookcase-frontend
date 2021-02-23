@@ -1,7 +1,14 @@
 @import '~src/sass/mixins';
 
+:host {
+  display: block;
+}
+
 .content {
   padding: 0 4%;
+}
+
+.text-info-and-cover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -14,11 +21,48 @@
 
 .cover-img {
   flex-grow: 1;
-  min-width: 200px;
-  max-width: 80%;
+  min-width: 160px;
+  align-self: start;
 }
 
 .text-info {
+  align-self: stretch;
+  padding: 0 15px;
   flex-grow: 3;
-  min-width: 250px;
+  background-color: white;
+  @include very-small-to-medium-screen {
+    margin-right: ($small-margin-between-bookshelves * 1px);
+  }
+  @include large-to-very-large-screen {
+    margin-right: ($large-margin-between-bookshelves * 1px);
+  }
+
+  .mat-line {
+    margin: 8px 0;
+    padding: 0 5px;
+  }
+
+  mat-list {
+    padding: 8px 0;
+  }
+
+  .mat-line-value {
+    font-weight: bold;
+  }
+}
+
+.title {
+  display: inline-block;
+  font-weight: 700;
+  color: white;
+  background-color: $app-dark-green;
+  margin: 0 0 ($small-margin-between-bookshelves * 1px);
+  @include very-small-to-medium-screen {
+    font-size: 24px;
+    padding: 10px 16px;
+  }
+  @include large-to-very-large-screen {
+    font-size: 32px;
+    padding: 13px 20px;
+  }
 }

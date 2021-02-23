@@ -1,18 +1,29 @@
-<div class="content" *ngIf="book$ | async as book; else loading" fxLayoutGap="10px">
-  <div class="text-info">
-    <h2 class="title">{{book.title}}</h2>
-    <h3 class="author">{{book.author}}</h3>
-    <p *ngIf="book.description" class="description">{{book.description}}</p>
-    <p *ngIf="book.addedBy" class="added-by">Dodana przez: {{book.addedBy}}</p>
-    <p *ngIf="book.lubimyCzytacUrl" class="lubimy-czytac-url">
-      Więcej info: <a [href]="book.lubimyCzytacUrl" target="_blank">link</a></p>
-    <p>Na półkach:</p>
-    <ul class="bookshelves">
-      <li *ngFor="let bookshelf of book.bookshelves">{{bookshelf.name}}</li>
-    </ul>
+<div class="content" *ngIf="book$ | async as book; else loading">
+  <h2 class="title">{{book.title}}</h2>
+  <div class="text-info-and-cover">
+    <div class="text-info">
+      <mat-list>
+        <h3 matLine class="author">Autor: <span class="mat-line-value">{{book.author}}</span></h3>
+        <mat-divider></mat-divider>
+        <ng-container *ngIf="book.description">
+          <p matLine class="description">{{book.description}}</p>
+          <mat-divider></mat-divider>
+        </ng-container>
+        <ng-container *ngIf="book.lubimyCzytacUrl">
+          <h4 matLine class="lubimy-czytac-url">
+            Więcej informacji: <a [href]="book.lubimyCzytacUrl" target="_blank">link</a></h4>
+          <mat-divider></mat-divider>
+        </ng-container>
+        <ng-container *ngIf="book.addedBy">
+          <h4 matLine class="added-by">Dodana przez: <span class="mat-line-value">{{book.addedBy}}</span></h4>
+          <mat-divider></mat-divider>
+        </ng-container>
+        <h4 matLine class="bookshelves">Na półkach: <span class="mat-line-value">{{getBookshelfNames(book)}}</span></h4>
+      </mat-list>
+    </div>
+    <img class="cover-img" *ngIf="book.coverImg; else noCoverImg" src="{{book.coverImg | coverImgFullUrl}}"
+         alt="{{book.coverImg.name}}">
   </div>
-  <img class="cover-img" *ngIf="book.coverImg; else noCoverImg" src="{{book.coverImg | coverImgFullUrl}}"
-       alt="{{book.coverImg.name}}">
 </div>
 
 <ng-template #noCoverImg>

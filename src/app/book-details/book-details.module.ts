@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { BookDetailsComponent } from './book-details.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { UtilsModule } from '../utils/utils.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [BookDetailsComponent],
@@ -11,7 +12,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     MatProgressSpinnerModule,
     UtilsModule,
-    FlexLayoutModule
+    MatDividerModule,
+    MatListModule
   ],
   exports: [BookDetailsComponent]
 })

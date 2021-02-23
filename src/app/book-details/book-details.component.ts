@@ -24,4 +24,8 @@ export class BookDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.book$ = this.booksService.getBookWithBookshelves(this.bookId);
   }
+
+  getBookshelfNames(book: BookWithBookshelves): string {
+    return book.bookshelves.map((bookshelf) => bookshelf.name).join(', ');
+  }
 }
